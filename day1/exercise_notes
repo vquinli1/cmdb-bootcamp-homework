@@ -1,0 +1,12 @@
+1. /Users/cmdb/data/day1/lunch $ wc dmel-all-r5.57-removeFASTA.gff
+ 13564834 153048099 2662919684 dmel-all-r5.57-removeFASTA.gff
+
+13564834 lines
+
+2. /Users/cmdb/data/day1/lunch $ grep "Sxl" dmel-all-r5.57-removeFASTA.gff|wc
+     696    6470  124342
+
+696 lines = 696 features contain "Sxl" 
+
+3. and 4. /Users/cmdb/data/day1/lunch $ cut -f3 dmel-all-r5.57-removeFASTA.gff|sort|uniq -c
+uniq -c = lists unique results and gives a count of each. Must sort before using uniq b/c uniq only recognizes adjacent repeats.

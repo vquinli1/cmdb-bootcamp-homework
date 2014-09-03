@@ -37,3 +37,26 @@ for i, line in enumerate(f):
     if "NH:i:1" in line and i>0: #NH gives the number of hits for the read. This counts reads with 1 hit.
         total = total + 1
 print total #got 17444398 for this data set
+
+#4. Extract just the column indicating which chromosome read aligns to (this is column 3)
+  #- HINT: .split()
+
+tophat_output_fname = "/Users/cmdb/data/day2/accepted_hits.sam"
+
+f = open(tophat_output_fname)
+chromosome = []
+for i, line in enumerate(f):
+    fields = line.rstrip("\r\n").split("\t") 
+    if i>0: #skips header of column
+        chromosome.append(fields[2]) 
+
+print sorted (chromosome)
+
+#5. Calculate how many alignments are on chromosome 2L 2R 3L 3R 4 X (keep track separately)
+#  - HINT: make individual counter variables (or a list)
+
+#6. Calculate average MAPQ score
+#  - HINT: counter and total variables
+
+#7. Count number of reads that start their alignment on chromosome 2L between base 10000 and 20000 (inclusive)
+#  - HINT: and

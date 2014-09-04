@@ -21,8 +21,11 @@ df_sorted_top    = df_sorted[df_sorted["FPKM"]>(28810.4/3)]
 #df_sorted_middle = df_sorted[ df_sorted["FPKM"] < (28810.4/3) and > (14405.2/3)]  - didn't work, incorrect syntax
 #df_sorted_middle = df_sorted[ df_sorted["FPKM"] < (28810.4/3) and ["FPKM"] > (14405.2/3)] - didn't work, valueerror
 #df_sorted_middle = df_sorted[ df_sorted["FPKM"] < (28810.4/3) and df_sorted["FPKM"] > (14405.2/3)] - didn't work valueerror
+#SOLUTION - MAKE DF_SORTED_MIDDLE IN 2 STEPS!
+df_sorted_middle_int = df_sorted[df_sorted["FPKM"]>(14405.2/3)]
+df_sorted_middle = df_sorted_middle_int[df_sorted_middle_int["FPKM"]<(28810.4/3)]
 
-data = [df_sorted_bottom["FPKM"], df_sorted_top["FPKM"]]
+data = [df_sorted_bottom["FPKM"], df_sorted_middle["FPKM"], df_sorted_top["FPKM"]]
 #print data
 
 plt.figure()
@@ -33,9 +36,11 @@ df2_sorted = df2.sort(["FPKM"])
 #print df2_sorted
 df2_sorted_bottom = df2_sorted[ df2_sorted["FPKM"]<(24267.2/3) ]
 df2_sorted_top    = df2_sorted[ df2_sorted["FPKM"]>(48534.4/3) ]
-#df_sorted_middle = df_sorted[ df_sorted["FPKM"] < (24267.2/3) and df_sorted["FPKM"] > (48534.4/3)] - didn't work
+df2_sorted_middle_int = df2_sorted[df2_sorted["FPKM"]>(24267.2/3)]
+df2_sorted_middle = df2_sorted_middle_int[df2_sorted_middle_int["FPKM"]<(48534.4/3)]
 
-data2 = [df2_sorted_bottom["FPKM"], df2_sorted_top["FPKM"]]
+
+data2 = [df2_sorted_bottom["FPKM"], df2_sorted_middle["FPKM"], df2_sorted_top["FPKM"]]
 #print data2
 
 plt.figure()

@@ -1,0 +1,29 @@
+#there are 6 orfs, must look for rev comp of sequences. translate with standard genetic code. submit code and aa sequences for 100 longest cufflinks outputs. can filter .gtf and then convert to fasta, or filter first. then write a second script to translate.
+
+use the transcrips.gtf file - these are in all clustal output folders - which one?
+
+
+*** DAY 4 - HOMEWORK ***
+
+ - Extract the 100 longest assembled transcripts from your cufflinks output (transcripts.gtf) in FASTA format
+ - Finding ORFS in these transcripts and print all ORFs found, translated to peptide sequence using the standard genetic code
+ 
+ #from loris.som.jhmi.edu/python_course/functions.html
+ >>> # ... and then we write a function to make the reverse-complement of a sequence
+ >>> def reversecomplement(sequence):
+ >>>     """Return the reverse complement of the dna string.""" 
+ >>>     basecomplement = {'a':'t', 'c':'g', 't':'a', 'g':'c'}
+ >>>     # We can call the previous function from this function
+ >>>     sequence = cleanDNA(sequence)
+ >>>     letters = list(sequence) 
+ >>>     letters.reverse() 
+ >>>     dna = ''
+ >>>     for base in letters:
+ >>>         dna += basecomplement[base] 
+ >>>     return dna
+
+ >>> reversecomplement('CGACAAGGATT 4 AGTAGTTTAC')
+ 'gtaaactactaatccttgtcg'
+
+ >>> 'gattaca' == reversecomplement(reversecomplement('gattaca'))
+ True
